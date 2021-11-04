@@ -1,0 +1,47 @@
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container2{
+    margin: 0px 150px 0px 150px;
+    padding: 20px;
+    border: 2px solid red;
+}
+
+.form{
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(180, 177, 177);
+    border: 1px solid rgb(180, 177, 177);
+    border-radius: 5px;
+}
+
+.todoElement{
+    padding: 10px;
+    margin: 10px;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: rgb(238, 234, 234);
+    border: 1px solid rgb(219, 214, 214);
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgb(180, 177, 177);
+}
+
+.todoInput{
+    width: 100%;
+}
+.containerFormbuttons{
+    display: flex;
+    justify-content: center;
+
+    padding: 10px;
+}
+
+.btn{
+    background-color: rgb(4, 191, 197);
+    margin-left : 10px;
+}
