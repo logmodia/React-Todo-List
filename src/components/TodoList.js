@@ -7,8 +7,8 @@ export default function TodoList(todos) {
 
     return(
         newTodos.map(
-            (el, index) => {
-                return <Todo name = {el} newTodos = {newTodos} setTodos = {todos.setTodos}/>
+            (el) => {
+                return <Todo key = {el.id} name = {el.name} id = {el.id} newTodos = {newTodos} completed = {el.complete} setTodos = {todos.setTodos}/>
             }
         )
 
