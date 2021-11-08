@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 export default function Todo(todoElements) {
 
     const deleteHandler = ()=>{
@@ -13,6 +11,14 @@ export default function Todo(todoElements) {
     }
 
     const checkboxHandler = ()=>{
+        todoElements.newTodos.find(todo => {
+            if (todo.id === todoElements.id){
+                todo.complete = !todo.complete
+                
+            }
+            
+            return todoElements.setTodos(todoElements.newTodos)
+        })
         
     }
 

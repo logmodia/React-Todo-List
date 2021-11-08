@@ -17,17 +17,16 @@ function App() {
 
   useEffect(() => {
     window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
-  })
+  },[todos])
 
   return (
     <div className="container">
       <div className = "container2">
         <h1>My Todo App</h1>
-          <Form todosArray = {todos} setTodos = {setTodos} LSKey = {LOCAL_STORAGE_KEY}/>
-        <div>
-          <TodoList todosArray = {todos} setTodos = {setTodos}/>
-        </div>
-
+        <Form todosArray = {todos} setTodos = {setTodos} LSKey = {LOCAL_STORAGE_KEY}/>
+        
+        <TodoList todosArray = {todos} setTodos = {setTodos}/>
+       
       </div>
     </div>
   )

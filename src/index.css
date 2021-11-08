@@ -21,7 +21,7 @@
 .todoElement{
     padding: 10px;
     margin: 10px;
-
+    
     display: flex;
     justify-content: space-between;
 
@@ -29,6 +29,21 @@
     border: 1px solid rgb(219, 214, 214);
     border-radius: 5px;
     box-shadow: 10px 10px 10px rgb(180, 177, 177);
+}
+
+.ContainertodoGroups{
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    border: 2px solid sandybrown;
+}
+.todoGroup{
+
+    width: 100%;
+
+    border: 2px solid sandybrown;
 }
 
 .todoInput{
