@@ -20,15 +20,21 @@ function App() {
   },[todos])
 
   return (
-    <div className="container">
-      <div className = "container2">
-        <h1>My Todo App</h1>
+    <>
+      <header className = "header">
+            <h1 className = "headerTitle">My Todo App</h1>
+      </header>
+
+      <div className = "main">
         <Form todosArray = {todos} setTodos = {setTodos} LSKey = {LOCAL_STORAGE_KEY}/>
-        
+  
         <TodoList todosArray = {todos} setTodos = {setTodos}/>
-       
       </div>
-    </div>
+
+      <footer className = "footer">
+            <h5 className = "headerTitle">My Todo App | ©copyright 2021 | by René Logala Modia</h5>
+      </footer>
+    </>
   )
 }
 

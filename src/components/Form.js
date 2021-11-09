@@ -15,11 +15,10 @@ export default function Form(todos) {
     
     return (
         <form className="form">
-          <input ref={inputRef} className="todoInput" type="text"/>
+          <input ref={inputRef} className="todoInput" type="text" placeholder = "Type your new todo here"/>
 
           <div className = "containerFormbuttons">
             <button className="btn" type="button" onClick={addTodoHandler}>Add todo</button>
-            <button className="btn" type="button">delete completed</button>
           </div>
 
         </form>
