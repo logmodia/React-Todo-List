@@ -37,7 +37,7 @@
 .containerFormbuttons{
     display: flex;
     justify-content: center;
-    padding-top: 5px;
+    padding-top: 10px;
 }
 .todoInput{
     margin: 0px auto;
@@ -80,7 +80,7 @@
 
     text-align: center;
     margin: 10px auto;
-    padding: 5px;
+    padding-top: 20px;
     padding-left: 0px;
     width: 80%;
 }

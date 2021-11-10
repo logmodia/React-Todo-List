@@ -7,6 +7,7 @@ import withReactContent from 'sweetalert2-react-content'
 const MySwal = withReactContent(Swal)
 
 
+const style_hideGroup_initial = {visibility: "hidden", position : "absolute", left :0}
 let style_hideGroup = {visibility: "hidden", position : "absolute", left :0}
 let btnTxt= "View completed"
 
@@ -26,13 +27,13 @@ export default function TodoList(todos) {
             style_hideGroup = {visibility: "visible", position : "static"}
             btnTxt = "Hide completed"
             setDisplay(true)
+            
         }else{
             style_hideGroup = {visibility: "hidden", position : "absolute", left : 0}
             btnTxt = "View completed"
             setDisplay(false)
         }
     }
-    
     
     //Creating two todos list : completed and uncompleted
     newTodos.map(
@@ -50,11 +51,13 @@ export default function TodoList(todos) {
         }
     )
         
-    //Hide or display completed todos list
+    //On click viewCompleted button, hide or display completed todos list if there is at least one todo
     const viewCompleted = ()=>{
-        if (completed.length) {
+        if (completed.length !== 0) {
+            testState()
+        }else{
+            MySwal.fire('Empty list','There is no completed todo','info')
         }
-        testState()
     }
 
         //Delete all completed todos-----------------------------------------
@@ -84,6 +87,11 @@ export default function TodoList(todos) {
         let countUncompleted = newTodos.filter(todo => !todo.complete)
         let countCompleted = newTodos.filter(todo => todo.complete)
 
+        if (countCompleted.length === 0) {
+            btnTxt = "View completed"
+            style_hideGroup=style_hideGroup_initial
+        }
+
         return(
             <>
                 <div className = "topListBtn_Container">
@@ -95,10 +103,10 @@ export default function TodoList(todos) {
 
                 <div className="ContainertodoGroups">
                     {
-                        uncompleted.length !== 0 ? <div className="todoGroup">{uncompleted}</div> : <div className="todoGroup" style = {style_hideGroup}/>
+                        uncompleted.length !== 0 ? <div className="todoGroup">{uncompleted}</div> : <div className="todoGroup" style = {style_hideGroup_initial}/>
                     }
                     {
-                        completed.length !== 0 ? <div className="todoGroup" style = {style_hideGroup}>{completed}</div> : <div className="todoGroup" style = {{visibility: "hidden", position : "absolute", left :0}}/>
+                        completed.length !== 0 ? <div className="todoGroup" style = {style_hideGroup}>{completed}</div> : <div className="todoGroup" style = {style_hideGroup}/>
                     }
                     
                 </div>
