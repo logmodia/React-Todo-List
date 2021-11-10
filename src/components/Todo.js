@@ -1,14 +1,40 @@
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
+
 export default function Todo(todoElements) {
+    
 
+    //Delete one todo-----------------------------------
     const deleteHandler = ()=>{
-        const updatedTodos = todoElements.newTodos.filter(
-            (val,index,arr)=> {
-                return  val.id !== todoElements.id
-            } ) 
 
-        todoElements.setTodos(updatedTodos)
+        MySwal.fire(
+            {
+                title : 'Do you really want to delete this todo',
+                icon : 'question',
+                footer : 'My Todo App',
+                showCancelButton : true,
+                showConfirmButton : true,
+                confirmButtonText : 'Yes, Delete'
 
-    }
+            }
+        ).then(result =>{
+            if (result.isConfirmed){
+                const updatedTodos = todoElements.newTodos.filter(
+                    (val)=> {
+                        return  val.id !== todoElements.id
+                    } ) 
+
+                    todoElements.setTodos(updatedTodos)
+                    
+                    
+                }
+            })
+            
+            
+        }
+        
 
     const checkboxHandler = ()=>{
         todoElements.newTodos.find(todo => {
@@ -16,11 +42,10 @@ export default function Todo(todoElements) {
                 todo.complete = !todo.complete
                 
             }
-            
             return todoElements.setTodos(todoElements.newTodos)
         })
-        
     }
+
 
     return (
         <div className = "todoElement">
